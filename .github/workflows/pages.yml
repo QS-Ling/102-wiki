@@ -27,6 +27,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Validate configuration and content
         run: python -m builder.validate
+      - name: Run renderer tests
+        run: python -m unittest discover -s tests -v
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5

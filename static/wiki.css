@@ -86,6 +86,15 @@ body.wiki-inner { background-color:transparent; }
 .story-content h3 { margin-top:32px; }
 .story-content p,.story-content li { max-width:850px; color:var(--muted); }
 .story-content a { color:var(--blue); }
+.person-keyword { color:var(--blue-soft); font-weight:800; }
+.biography { max-width:760px; margin:0 auto; }
+.biography-heading { margin-bottom:36px; padding-bottom:24px; border-bottom:1px solid var(--line); }
+.biography-heading h1 { margin:0; font-size:clamp(2rem,5vw,3.4rem); line-height:1.3; overflow-wrap:anywhere; }
+.biography-author { margin:16px 0 0; color:var(--muted); font-size:.9rem; }
+.biography-content { line-height:2; overflow-wrap:anywhere; }
+.biography-content p { margin:0 0 1.3em; }
+.biography-content img { display:block; width:auto; height:auto; max-width:100%; max-height:70vh; margin:24px auto; }
+.biography-content > h1:first-child { display:block; }
 .story-content img { max-width:100%; border:1px solid var(--line); }
 .story-content blockquote { margin:24px 0; padding:17px 24px; border-left:3px solid var(--pink); background:rgba(216,95,145,.09); }
 .story-content table { width:100%; border-collapse:collapse; }

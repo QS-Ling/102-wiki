@@ -9,6 +9,7 @@
 ```text
 content/jiaoxianting/
 ├── wiki.json
+├── keywords.json           # 可选：人物称呼自动强调
 ├── pages/
 │   ├── story.md
 │   └── quotes.md
@@ -19,6 +20,7 @@ content/jiaoxianting/
 ```
 
 - `wiki.json` 控制标题、封面和栏目。
+- 可选的 `keywords.json` 配置当前人物的关键词。
 - `pages/` 保存 Markdown 文章或语录。
 - `media/gallery/` 保存图册图片。
 - `media/markdown/` 保存文章中引用的图片。
@@ -47,6 +49,7 @@ content/jiaoxianting/
 直接编辑 `pages/` 中由栏目 `source` 指定的 Markdown 文件。
 
 - `markdown` 类型按普通 Markdown 文章显示。
+- `biography` 类型显示人物小传，保留单个换行，并单独显示标题和作者。
 - `quotes` 类型会把每个 Markdown 段落显示为一张语录卡片；语录之间留一个空行。
 - 外部链接和外部图片必须使用 `https://`。
 
@@ -57,6 +60,52 @@ content/jiaoxianting/
 ```
 
 构建器会自动把它转换为当前 Wiki 的媒体 URL。图片不能引用当前 Wiki `media/` 目录以外的本地文件。
+
+### 配置人物关键词
+
+在 `wiki.json` 同级创建 `keywords.json`：
+
+```json
+{
+  "keywords": ["焦子", "焦处", "焦显庭"]
+}
+```
+
+规则作用于当前 Wiki 的文章、小传和语录正文，以加粗和文字颜色强调匹配内容，不修改原始 Markdown。标题、链接、代码、图片属性和已经加粗的内容不重复处理；重叠关键词优先匹配较长的词。文件不存在或数组为空时不启用自动强调。每一项必须是非空字符串。作者仍可在原文中使用 `**文字**` 手动强调。
+
+### 添加人物小传
+
+创建 `pages/biography.md`，示例：
+
+```markdown
+---
+author: 坤械23-8涵姐
+---
+
+# 人物传记:jxt
+
+第一行文字。
+第二行文字。
+
+这是另一个段落。
+
+![原文插图](../media/markdown/biography-image1.png)
+```
+
+文件顶部的元数据块支持单行纯文本 `author`，留空或不提供就隐藏作者行。开头第一个有效内容若是 `# 标题`，将其提取为文章标题，正文不再重复；否则使用栏目 `default_title`，未设置时使用栏目 `name`。正文中后续出现的标题照常保留。单个换行显示为换行，空行分段；图片继续使用普通 Markdown 图片语法。
+
+在 `wiki.json` 的 `sections` 中注册：
+
+```json
+{
+  "id": "biography",
+  "name": "人物小传",
+  "icon": "contact-round",
+  "type": "biography",
+  "source": "pages/biography.md",
+  "default_title": "焦显庭小传"
+}
+```
 
 ### 添加或替换图册图片
 
@@ -89,6 +138,7 @@ content/jiaoxianting/media/video/
 | `type` | `source` 应指向 | 用途 |
 | --- | --- | --- |
 | `markdown` | 一个 Markdown 文件 | 普通文章 |
+| `biography` | 一个 Markdown 文件 | 人物小传、标题、作者及保留换行 |
 | `quotes` | 一个 Markdown 文件 | 语录卡片 |
 | `gallery` | 一个图片目录 | 自动图册与灯箱 |
 | `video` | 一个视频目录 | 视频列表 |
@@ -126,7 +176,7 @@ content/jiaoxianting/pages/profile.md
 - `id` 只能包含小写字母、数字和连字符，并且在当前 Wiki 中唯一。
 - `name` 是页面上显示的栏目名称。
 - `icon` 使用 Lucide 图标名称，例如 `file-text`、`images`、`book-open-text`。
-- `type` 必须是当前支持的四种类型之一。
+- `type` 必须是当前支持的五种类型之一。
 - `source` 必须位于当前 Wiki 目录内，并且文件或目录必须已经存在。
 - `sections` 中的排列顺序就是首页标签页顺序。
 

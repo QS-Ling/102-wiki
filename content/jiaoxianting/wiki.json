@@ -16,6 +16,14 @@
       "source": "pages/story.md"
     },
     {
+      "id": "biography",
+      "name": "人物小传",
+      "icon": "contact-round",
+      "type": "biography",
+      "source": "pages/biography.md",
+      "default_title": "焦显庭小传"
+    },
+    {
       "id": "quotes",
       "name": "语录",
       "icon": "message-square-quote",

@@ -59,6 +59,7 @@ YUNA102 Wiki 是一个独立、多 Wiki 的内容仓库。`main` 分支是 Wiki 
 | 类型 | 内容源 | 页面效果 |
 | --- | --- | --- |
 | `markdown` | 单个 Markdown 文件 | 普通文章 |
+| `biography` | 单个 Markdown 文件 | 人物小传，独立标题、作者及保留换行 |
 | `quotes` | 单个 Markdown 文件 | 段落式语录卡片 |
 | `gallery` | 图片目录 | 自动排序图册与灯箱 |
 | `video` | 视频目录 | 支持浏览器播放的视频列表 |

@@ -1,0 +1,7 @@
+<article class="biography">
+  <header class="biography-heading">
+    <h1>{{ body.title }}</h1>
+    {% if body.author %}<p class="biography-author">作者：{{ body.author }}</p>{% endif %}
+  </header>
+  {% if body.html %}<div class="story-content biography-content">{{ body.html|safe }}</div>{% else %}<div class="empty">暂无内容</div>{% endif %}
+</article>

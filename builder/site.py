@@ -11,11 +11,13 @@ from urllib.parse import quote, urlparse
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import markdown
 
+from .content import biography_parts, highlight_keywords
+
 
 SCHEMA_VERSION = 1
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 IDENTIFIER_RE = SLUG_RE
-SUPPORTED_TYPES = {"markdown", "quotes", "gallery", "video"}
+SUPPORTED_TYPES = {"markdown", "biography", "quotes", "gallery", "video"}
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp"}
 VIDEO_SUFFIXES = {".mp4", ".webm", ".ogg", ".mov", ".avi"}
 MAX_GIT_FILE_BYTES = 100 * 1024 * 1024
@@ -23,6 +25,7 @@ RESERVED_SLUGS = {"guide", "static"}
 GUIDE_SOURCE = Path("docs/content-guide.md")
 SECTION_RENDERERS = {
     "markdown": "_render_markdown",
+    "biography": "_render_biography",
     "quotes": "_render_quotes",
     "gallery": "_render_gallery",
     "video": "_render_video",
@@ -117,6 +120,15 @@ class WikiRepository:
             item["directory"] = directory
             item["featured"] = registration.get("featured", False)
             item["path"] = wiki_dir
+            keywords_path = _safe_path(wiki_dir, "keywords.json", "keywords.json")
+            item["keywords"] = []
+            if keywords_path.exists():
+                keywords = _read_json(keywords_path).get("keywords")
+                if not isinstance(keywords, list) or any(
+                    not isinstance(word, str) or not word.strip() for word in keywords
+                ):
+                    raise ConfigError(f"{keywords_path} 的 keywords 必须是非空字符串组成的数组")
+                item["keywords"] = keywords
             loaded.append(item)
 
         loaded.sort(key=lambda item: (not item["featured"], item["title"], item["slug"]))
@@ -184,7 +196,9 @@ class WikiRepository:
             if section_type not in SUPPORTED_TYPES:
                 raise ConfigError(f"{section_context} 使用不支持的类型：{section_type}")
             source = _safe_path(wiki_dir, section["source"], f"{section_context}.source")
-            should_be_file = section_type in {"markdown", "quotes"}
+            should_be_file = section_type in {"markdown", "biography", "quotes"}
+            if "default_title" in section:
+                _required_text(section, "default_title", section_context)
             if should_be_file and not source.is_file():
                 raise ConfigError(f"栏目源文件不存在：{section['source']}")
             if not should_be_file and not source.is_dir():
@@ -312,13 +326,26 @@ class SiteRenderer:
         html = markdown.markdown(source.read_text(encoding="utf-8"), extensions=["extra"])
         html = self._rewrite_markdown_images(html, source, wiki)
         self._validate_external_links(html, source)
+        html = highlight_keywords(html, wiki.get("keywords", []))
         return {"template": "types/markdown.html", "html": html}
+
+    def _render_biography(self, wiki: dict[str, Any], section: dict[str, Any]) -> dict[str, Any]:
+        source = _safe_path(wiki["path"], section["source"], "section.source")
+        default_title = section.get("default_title", section["name"])
+        title, author, text = biography_parts(source.read_text(encoding="utf-8"), default_title)
+        html = markdown.markdown(text, extensions=["extra", "nl2br"])
+        html = self._rewrite_markdown_images(html, source, wiki)
+        self._validate_external_links(html, source)
+        html = highlight_keywords(html, wiki.get("keywords", []))
+        return {"template": "types/biography.html", "title": title,
+                "author": author, "html": html}
 
     def _render_quotes(self, wiki: dict[str, Any], section: dict[str, Any]) -> dict[str, Any]:
         source = _safe_path(wiki["path"], section["source"], "section.source")
         html = markdown.markdown(source.read_text(encoding="utf-8"), extensions=["extra"])
         html = self._rewrite_markdown_images(html, source, wiki)
         self._validate_external_links(html, source)
+        html = highlight_keywords(html, wiki.get("keywords", []))
         html = re.sub(r"<p>(.+?)</p>", r'<div class="quote-item">\1</div>', html, flags=re.DOTALL)
         return {"template": "types/quotes.html", "html": html}
 
