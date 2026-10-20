@@ -31,6 +31,7 @@ YUNA102 Wiki 是一个独立、多 Wiki 的内容仓库。`main` 分支是 Wiki 
 ├── content/
 │   └── <wiki-slug>/
 │       ├── wiki.json              # Wiki 元数据与栏目注册
+│       ├── keywords.json          # 可选：当前人物的称呼与关键词
 │       ├── pages/                 # Markdown 与语录
 │       └── media/
 │           ├── gallery/           # 图册图片
@@ -65,6 +66,8 @@ YUNA102 Wiki 是一个独立、多 Wiki 的内容仓库。`main` 分支是 Wiki 
 | `video` | 视频目录 | 支持浏览器播放的视频列表 |
 
 栏目和 Wiki 路由由配置自动生成。添加新 Wiki 或新栏目不需要修改 Flask 路由。
+
+每个人物可在 `wiki.json` 同级维护独立的 `keywords.json`，例如 `{"keywords": ["焦子", "焦处", "焦显庭", "ixt", "jxt"]}`。文章、小传和语录正文会自动强调这些词；英文区分大小写。增删称呼只需修改该 JSON，无需修改原始 Markdown。详细匹配规则和小传编辑方法见内容维护指南。
 
 ## 编辑内容
 
