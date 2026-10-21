@@ -346,7 +346,11 @@ class SiteRenderer:
         html = self._rewrite_markdown_images(html, source, wiki)
         self._validate_external_links(html, source)
         html = highlight_keywords(html, wiki.get("keywords", []))
-        html = re.sub(r"<p>(.+?)</p>", r'<div class="quote-item">\1</div>', html, flags=re.DOTALL)
+        html = re.sub(
+            r"<p>(.+?)</p>",
+            r'<div class="quote-item"><span class="quote-text">\1</span></div>',
+            html, flags=re.DOTALL,
+        )
         return {"template": "types/quotes.html", "html": html}
 
     def _render_gallery(self, wiki: dict[str, Any], section: dict[str, Any]) -> dict[str, Any]:
