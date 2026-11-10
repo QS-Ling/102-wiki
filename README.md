@@ -4,7 +4,7 @@ YUNA102 Wiki 是一个独立、多 Wiki 的内容仓库。`main` 分支是 Wiki 
 
 - 线上站点：<https://102wiki.yuna.team/>
 - 内容维护指南：<https://102wiki.yuna.team/guide/>
-- GitHub 仓库：<https://github.com/QScholar/102-wiki>
+- GitHub 仓库：<https://github.com/QS-Ling/102-wiki>
 
 ## 工作方式
 

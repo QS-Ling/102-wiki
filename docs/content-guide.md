@@ -1,6 +1,6 @@
 # Wiki 内容维护指南
 
-这份指南适用于 YUNA102 Wiki 仓库。站点内容的权威来源是 GitHub 仓库 `QScholar/102-wiki` 的 `main` 分支；提交后，GitHub Actions 会先校验配置和内容，再发布到 GitHub Pages。本地服务器每天安全同步一次相同内容。
+这份指南适用于 YUNA102 Wiki 仓库。站点内容的权威来源是 GitHub 仓库 `QS-Ling/102-wiki` 的 `main` 分支；提交后，GitHub Actions 会先校验配置和内容，再发布到 GitHub Pages。本地服务器每天安全同步一次相同内容。
 
 ## 开始之前
 
