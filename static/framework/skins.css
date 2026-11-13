@@ -280,6 +280,23 @@
 @media(prefers-contrast:more), (prefers-reduced-transparency:reduce), (forced-colors:active) { :root[data-skin="scarlet"] body.index-page::before { background-image:none; } }
 :root[data-skin="arknights"] .content-stack > .card code,
 :root[data-skin="scarlet"] .content-stack > .card code { color:var(--blue-soft); background:var(--surface-2); }
+/* Reflow the existing overview without changing its text, tables or row order. */
+:root[data-skin="scarlet"] .content-stack > .server-overview-section { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto auto auto 1fr; column-gap:28px; row-gap:0; padding:58px 0 70px; align-items:start; }
+:root[data-skin="scarlet"] .server-overview-section > h2 { grid-column:1 / -1; grid-row:1; padding-top:14px; margin:0 0 28px; font-family:"Iowan Old Style","Palatino Linotype","Noto Serif SC","Songti SC",serif; font-size:clamp(2rem,3vw,3rem); letter-spacing:.02em; }
+:root[data-skin="scarlet"] .server-overview-section > p:first-of-type { grid-column:1; grid-row:2 / 4; margin:0 0 12px; }
+:root[data-skin="scarlet"] .server-overview-section > table:first-of-type { grid-column:1; grid-row:4; }
+:root[data-skin="scarlet"] .server-overview-section > h3 { grid-column:2; grid-row:2; margin:0 0 8px; font-family:"Iowan Old Style","Palatino Linotype","Noto Serif SC","Songti SC",serif; color:var(--scarlet-gold); font-size:1.1rem; }
+:root[data-skin="scarlet"] .server-overview-section > p:nth-of-type(2) { grid-column:2; grid-row:3; margin:0 0 12px; }
+:root[data-skin="scarlet"] .server-overview-section > table:nth-of-type(2) { grid-column:2; grid-row:4; }
+:root[data-skin="scarlet"] .server-overview-section > table { table-layout:fixed; margin:0; border:1px solid var(--scarlet-frame); background:var(--surface); }
+:root[data-skin="scarlet"] .server-overview-section :is(th,td) { padding:10px 12px; overflow-wrap:anywhere; }
+:root[data-skin="scarlet"] .server-overview-section th { color:var(--scarlet-gold); }
+@media(max-width:900px) {
+  :root[data-skin="scarlet"] .content-stack > .server-overview-section { display:block; padding:44px 0 55px; }
+  :root[data-skin="scarlet"] .server-overview-section > h2 { margin-bottom:22px; }
+  :root[data-skin="scarlet"] .server-overview-section > h3 { margin:32px 0 8px; }
+  :root[data-skin="scarlet"] .server-overview-section > table { display:table; width:100%; white-space:normal; }
+}
 @media(max-width:700px) {
   .appearance-controls { gap:5px; }
   .skin-picker { padding:0 5px; gap:4px; }
