@@ -216,27 +216,30 @@
 :root[data-skin="scarlet"] .index-page .domain-grid.carousel-ready { border:0; background:transparent; box-shadow:none; }
 :root[data-skin="scarlet"] .index-page .domain-grid .carousel-track { gap:12px; padding:8px; grid-template-rows:repeat(2,155px); }
 :root[data-skin="scarlet"] .index-page .domain-grid.carousel-ready .domain-link { min-height:155px; padding:19px 22px; border:1px solid var(--scarlet-frame); border-radius:5px; background:var(--surface); box-shadow:inset 0 0 0 4px var(--surface),inset 0 0 0 5px color-mix(in srgb,var(--scarlet-frame) 36%,transparent); }
-:root[data-skin="scarlet"] .index-page .domain-link::before { inset:0; opacity:0; background:linear-gradient(125deg,#5a1b2d,#35101d); transition:opacity .2s; }
-:root[data-skin="scarlet"] .index-page .domain-link:is(:hover,:focus-visible)::before { opacity:1; }
-:root[data-skin="scarlet"] .index-page .domain-link::after { content:"✦"; width:auto; height:auto; right:19px; bottom:13px; border:0; transform:none; color:var(--scarlet-gold); opacity:.8; }
-:root[data-skin="scarlet"] .index-page .domain-link:is(:hover,:focus-visible)::after { content:"↗"; transform:none; color:#dfbe82; }
-:root[data-skin="scarlet"] .index-page .domain-link strong { font-family:"Iowan Old Style","Palatino Linotype","Noto Serif SC","Songti SC",serif; font-size:1rem; letter-spacing:.02em; }
-:root[data-skin="scarlet"] .index-page .domain-link svg { color:var(--scarlet-gold); }
-:root[data-skin="scarlet"] .index-page .domain-link small { padding:1px 6px; border:1px solid color-mix(in srgb,var(--scarlet-frame) 55%,transparent); border-radius:2px; color:var(--scarlet-gold); }
-:root[data-skin="scarlet"] .index-page .domain-link:is(:hover,:focus-visible) { color:#fff1e9; border-color:#dfbe82; }
-:root[data-skin="scarlet"] .index-page .domain-link:focus-visible { outline:2px solid var(--scarlet-gold); outline-offset:-3px; }
-:root[data-skin="scarlet"] .index-page .domain-link:is(:hover,:focus-visible) :is(svg,small) { color:#dfbe82; }
-:root[data-skin="scarlet"] .index-page .domain-link:is(:hover,:focus-visible) code { color:#ead0c9; }
+/* The compact service introductions reuse the homepage plaque component. */
+:root[data-skin="scarlet"] .yuna-home-layout .service-directory .domain-link { min-height:155px; padding:19px 22px; border:1px solid var(--scarlet-frame); border-radius:5px; background:var(--surface); box-shadow:inset 0 0 0 4px var(--surface),inset 0 0 0 5px color-mix(in srgb,var(--scarlet-frame) 36%,transparent); }
+@media(max-width:700px) { :root[data-skin="scarlet"] .yuna-home-layout .service-directory .domain-link { border-right:1px solid var(--scarlet-frame)!important; border-bottom:1px solid var(--scarlet-frame)!important; } }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link::before { inset:0; opacity:0; background:linear-gradient(125deg,#5a1b2d,#35101d); transition:opacity .2s; }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link:is(:hover,:focus-visible)::before { opacity:1; }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link::after { content:"✦"; width:auto; height:auto; right:19px; bottom:13px; border:0; transform:none; color:var(--scarlet-gold); opacity:.8; }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link:is(:hover,:focus-visible)::after { content:"↗"; transform:none; color:#dfbe82; }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link strong { font-family:"Iowan Old Style","Palatino Linotype","Noto Serif SC","Songti SC",serif; font-size:1rem; letter-spacing:.02em; }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link svg { color:var(--scarlet-gold); }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link small { padding:1px 6px; border:1px solid color-mix(in srgb,var(--scarlet-frame) 55%,transparent); border-radius:2px; color:var(--scarlet-gold); }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link:is(:hover,:focus-visible) { color:#fff1e9; border-color:#dfbe82; }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link:focus-visible { outline:2px solid var(--scarlet-gold); outline-offset:-3px; }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link:is(:hover,:focus-visible) :is(svg,small) { color:#dfbe82; }
+:root[data-skin="scarlet"] :is(.index-page,.yuna-home-layout) .domain-link:is(:hover,:focus-visible) code { color:#ead0c9; }
 :root[data-skin="scarlet"] .index-page .external-services { border-color:var(--scarlet-frame); background:var(--surface); box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 6px color-mix(in srgb,var(--scarlet-frame) 45%,transparent); }
 :root[data-skin="scarlet"] .index-page .external-services::before { content:none; }
 :root[data-skin="scarlet"] .index-page .external-heading { padding-bottom:24px; border-bottom:1px solid var(--scarlet-frame); }
 :root[data-skin="scarlet"] .index-page .external-heading h2 { font-family:"Iowan Old Style","Palatino Linotype","Noto Serif SC","Songti SC",serif; font-size:clamp(2.5rem,4vw,4.4rem); line-height:1.1; letter-spacing:.04em; }
 :root[data-skin="scarlet"] .index-page .external-heading .eyebrow::after { content:"  ✦"; color:var(--scarlet-gold); }
-:root[data-skin="scarlet"] .index-page .external-card { border:1px solid var(--scarlet-frame); border-radius:4px; background:var(--surface-2); box-shadow:inset 0 0 0 5px var(--surface-2),inset 0 0 0 6px color-mix(in srgb,var(--scarlet-frame) 48%,transparent); }
-:root[data-skin="scarlet"] .index-page .external-card::before { inset:auto 18px 12px; height:1px; background:var(--scarlet-frame); }
+:root[data-skin="scarlet"] .index-page .external-card { aspect-ratio:3 / 4; min-height:0; height:auto; border:1px solid var(--scarlet-frame); border-radius:4px; background:var(--surface-2); box-shadow:inset 0 0 0 5px var(--surface-2),inset 0 0 0 6px color-mix(in srgb,var(--scarlet-frame) 48%,transparent); }
+:root[data-skin="scarlet"] .index-page .external-card::before { inset:0 0 auto; height:64px; background:color-mix(in srgb,var(--scarlet-frame) 24%,var(--surface-2)); clip-path:polygon(0 0,100% 0,50% 100%); transform-origin:50% 0; transition:transform .45s var(--ease),background .3s; backface-visibility:hidden; }
 :root[data-skin="scarlet"] .index-page .external-card::after { content:"✦"; right:17px; top:13px; width:auto; height:auto; border:0; border-radius:0; color:var(--scarlet-gold); font-size:14px; }
 :root[data-skin="scarlet"] .index-page .external-card:is(:hover,:focus-visible) { color:var(--ink); border-color:var(--scarlet-gold); background:color-mix(in srgb,var(--surface-2) 85%,var(--pink)); transform:translateY(-2px); box-shadow:inset 0 0 0 5px var(--surface-2),inset 0 0 0 6px var(--scarlet-frame),0 12px 30px rgba(30,5,13,.14); }
-:root[data-skin="scarlet"] .index-page .external-card:is(:hover,:focus-visible)::before { height:1px; }
+:root[data-skin="scarlet"] .index-page .external-card:is(:hover,:focus-visible)::before { height:64px; transform:perspective(650px) rotateX(150deg); }
 :root[data-skin="scarlet"] .index-page .external-card:is(:hover,:focus-visible)::after { transform:none; }
 :root[data-skin="scarlet"] .index-page .service-body strong { font-family:"Iowan Old Style","Palatino Linotype","Noto Serif SC","Songti SC",serif; letter-spacing:.02em; }
 :root[data-skin="scarlet"] .index-page .external-card:is(:hover,:focus-visible) :is(.service-summary,.service-foot code,.service-no,.service-access > span) { color:var(--muted); }
@@ -264,6 +267,7 @@
   .scarlet-frame-lace-top,.scarlet-frame-lace-bottom { height:15px; background-size:32px 15px!important; }
 }
 @media(forced-colors:active) { .scarlet-hero-frame { display:none!important; } }
+@media(prefers-reduced-motion:reduce) { :root[data-skin="scarlet"] .index-page .external-card::before { transition:none; } :root[data-skin="scarlet"] .index-page .external-card:is(:hover,:focus-visible)::before { transform:none; background:color-mix(in srgb,var(--scarlet-frame) 38%,var(--surface-2)); } }
 @media(prefers-contrast:more), (prefers-reduced-transparency:reduce), (forced-colors:active) { :root[data-skin="scarlet"] body.index-page::before { background-image:none; } }
 :root[data-skin="arknights"] .content-stack > .card code,
 :root[data-skin="scarlet"] .content-stack > .card code { color:var(--blue-soft); background:var(--surface-2); }

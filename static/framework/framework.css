@@ -30,6 +30,14 @@
 :root[data-skin="arknights"] .yuna-service .catalog-card:hover :is(small,.catalog-card-copy span) { color:var(--muted); }
 :root[data-skin="arknights"] .yuna-service .wiki-hero .emblem-frame { min-height:0; }
 :root[data-skin="scarlet"] .yuna-service :is(.assessment-hero,.inventory-hero,.catalog-hero,.wiki-hero) h1 { font-family:Georgia,"Noto Serif CJK SC",serif; }
+/* Shared Scarlet controls: keep operational status and destructive colours intact. */
+:root[data-skin="scarlet"] .yuna-service :is(.button,.text-button,.btn-primary,.btn-outline-primary,.btn-outline-secondary,.btn-outline-info,.auth-submit,.submit-btn,.retry-btn,.generate-btn,.primary-button,.remote-button:not(.danger),.cal-btn:not(.cal-btn-danger)) { color:var(--ink); background:var(--surface-2); border:1px solid var(--scarlet-frame); border-radius:3px; box-shadow:inset 0 0 0 3px var(--surface-2),inset 0 0 0 4px color-mix(in srgb,var(--scarlet-frame) 45%,transparent); transform:none; }
+:root[data-skin="scarlet"] .yuna-service :is(.button-primary,.btn-primary,.auth-submit,.submit-btn,.retry-btn,.generate-btn,.primary-button,.remote-button.primary,.cal-btn-primary,.cal-btn-accent) { color:#fff1e9; background:#65182f; border-color:#b58c5d; box-shadow:inset 0 0 0 3px #65182f,inset 0 0 0 4px #b58c5d; }
+:root[data-skin="scarlet"] .yuna-service :is(.button,.text-button,.btn-primary,.btn-outline-primary,.btn-outline-secondary,.btn-outline-info,.auth-submit,.submit-btn,.retry-btn,.generate-btn,.primary-button,.remote-button:not(.danger),.cal-btn:not(.cal-btn-danger)):is(:hover,:focus-visible,.active):not(:disabled) { color:#fff1e9; background:#65182f; border-color:#dfbe82; box-shadow:inset 0 0 0 3px #65182f,inset 0 0 0 4px #b58c5d; transform:none; }
+:root[data-skin="scarlet"] .yuna-service :is(.button,.text-button,.btn,.auth-submit,.submit-btn,.retry-btn,.generate-btn,.primary-button,.remote-button,.cal-btn):focus-visible { outline:2px solid var(--scarlet-gold); outline-offset:2px; }
+:root[data-skin="scarlet"] .yuna-service :is(.button,.text-button,.btn,.auth-submit,.submit-btn,.retry-btn,.generate-btn,.primary-button,.remote-button,.cal-btn):disabled { color:var(--muted); background:var(--surface); border-color:var(--line); box-shadow:none; opacity:.65; cursor:not-allowed; }
+:root[data-skin="scarlet"] .yuna-service--inventory .primary-nav .nav-add { color:#fff1e9; background:#65182f; border-color:var(--scarlet-frame); box-shadow:inset 0 0 0 3px #65182f,inset 0 0 0 4px #b58c5d; }
+:root[data-skin="scarlet"] .yuna-service--inventory .primary-nav .nav-add:is(:hover,:focus-visible,.active) { color:#fff1e9; background:#7d203b; border-color:#dfbe82; box-shadow:inset 0 0 0 3px #7d203b,inset 0 0 0 4px #dfbe82; transform:none; }
 @media(max-width:1100px) {
   .yuna-app.yuna-service .topbar { height:auto; min-height:84px; flex-wrap:wrap; padding-block:14px; gap:12px; }
   .yuna-app .primary-nav { gap:6px; }
