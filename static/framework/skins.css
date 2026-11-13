@@ -155,6 +155,9 @@
 :root[data-skin="arknights"] .button { border-color:var(--line); color:#10252b; background:var(--ark-cyan); box-shadow:4px 4px 0 var(--ark-shadow); }
 :root[data-skin="arknights"] .button:hover { background:#39c8e6; color:#10252b; box-shadow:4px 4px 0 var(--ark-shadow); }
 :root[data-skin="arknights"] .button:disabled { color:var(--muted); background:var(--surface-2); box-shadow:none; }
+:root[data-skin="arknights"] .guide-callout > a { color:#10252b; background:var(--ark-cyan); border:1px solid var(--ark-cyan); box-shadow:4px 4px 0 var(--ark-shadow); }
+:root[data-skin="arknights"] .guide-callout > a:is(:hover,:focus-visible) { color:#10252b; background:#39c8e6; outline:2px solid var(--ark-cyan); outline-offset:2px; }
+:root[data-skin="arknights"] .wiki-tab:is(:hover,:focus-visible,.active) { color:var(--ink); background:var(--surface-2); box-shadow:inset 3px 0 var(--ark-cyan); transform:none; }
 :root[data-skin="arknights"] .content-stack > .card { grid-column:1; display:block; background:var(--surface); margin:0; padding:34px 32px; border:1px solid var(--line); border-top:0; gap:32px; min-height:260px; scroll-margin-top:20px; }
 :root[data-skin="arknights"] .content-stack > .card::before { top:12px; left:12px; }
 :root[data-skin="arknights"] .content-stack > .card h2 { padding-top:12px; margin:0 0 26px; font-size:clamp(1.5rem,2.3vw,2rem); letter-spacing:-.025em; }
