@@ -1,0 +1,133 @@
+/* Shared application shell. Business layouts remain owned by their applications. */
+.yuna-app .site-shell { width:min(1600px,calc(100% - 48px)); }
+.yuna-app .topbar { gap:20px; }
+.yuna-app :is(.top-meta,.primary-nav,.wiki-actions) { min-width:0; }
+.yuna-app :is(input,select,textarea,button) { font-family:inherit; }
+.yuna-app :is(.page-main,.studio,.studio-grid,.controls,.preview-panel,.auth-intro,.auth-panel,.wiki-main,.wiki-sidebar,.wiki-workspace,.catalog-hero-copy,.assessment-hero > div,.inventory-hero > div) { min-width:0; }
+.yuna-app :is(.question-text,.auth-copy,.catalog-card-copy,.item-name,.inner-heading h1) { overflow-wrap:anywhere; }
+.yuna-app .appearance-controls { flex-shrink:0; }
+.yuna-app .wiki-actions { display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
+.yuna-app .primary-nav { flex-wrap:wrap; }
+.yuna-app.yuna-service :is(.auth-topbar,.auth-shell) { width:min(1600px,calc(100% - 48px)); margin-inline:auto; }
+.yuna-app.yuna-service .auth-shell { grid-template-columns:minmax(0,1fr) minmax(320px,.75fr); }
+.yuna-app.yuna-service .auth-field { grid-template-columns:90px minmax(0,1fr); }
+.yuna-app.yuna-service :is(.form-control,.form-select,.modal-content) { color:var(--ink); background-color:var(--surface); border-color:var(--line); }
+.yuna-app.yuna-service .modal { z-index:1055; }
+.yuna-app.yuna-service .lightbox-overlay { z-index:1100; }
+.yuna-app.yuna-service :is(.auth-field input,input[type="text"],textarea):focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
+:root[data-skin="arknights"] .yuna-service :is(.assessment-hero,.inventory-hero,.catalog-hero,.wiki-hero) { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; align-items:center; padding:36px 0; min-height:0; }
+:root[data-skin="arknights"] .yuna-service :is(.assessment-hero,.inventory-hero,.catalog-hero,.wiki-hero) h1 { color:var(--ink); font-style:normal; font-size:clamp(2.5rem,5vw,5.5rem); line-height:1.05; letter-spacing:-.035em; }
+:root[data-skin="arknights"] .yuna-service :is(.assessment-hero,.inventory-hero,.catalog-hero,.wiki-hero) h1 em { margin:12px 0 0; color:var(--muted); -webkit-text-stroke:0; filter:none; white-space:normal; font-size:.62em; }
+:root[data-skin="arknights"] .yuna-service :is(.assessment-hero,.inventory-hero) .hero-copy { grid-column:auto; grid-row:auto; }
+:root[data-skin="arknights"] .yuna-service :is(.question-card,.test-progress,.results-container,.control-section,.catalog-card,.guide-callout,.wiki-workspace,.item-card,.group-section,.modal-content) { color:var(--ink); border:1px solid var(--line); border-radius:0; background:var(--surface); box-shadow:none; backdrop-filter:none; }
+:root[data-skin="arknights"] .yuna-service :is(.studio-grid,.auth-shell) { border:1px solid var(--line); background:var(--surface); box-shadow:none; backdrop-filter:none; }
+:root[data-skin="arknights"] .yuna-service :is(.auth-submit,.submit-btn,.generate-btn,.btn-primary,.primary-button) { color:#10252b; border-color:var(--ark-cyan); background:var(--ark-cyan); box-shadow:none; }
+:root[data-skin="arknights"] .yuna-service :is(.auth-mode-tab.active,.primary-nav .nav-add,.wiki-tabs a.active) { color:#10252b; background:var(--ark-cyan); border-color:var(--ark-cyan); }
+:root[data-skin="arknights"] .yuna-service .auth-copy h1 span { color:var(--muted); -webkit-text-stroke:0; }
+:root[data-skin="arknights"] .yuna-service .catalog-card:is(:hover,:focus-visible) { border-color:var(--blue); transform:none; }
+:root[data-skin="arknights"] .yuna-service .catalog-card::before { background:var(--surface-2); }
+:root[data-skin="arknights"] .yuna-service .catalog-card:hover { color:var(--ink); }
+:root[data-skin="arknights"] .yuna-service .catalog-card:hover :is(small,.catalog-card-copy span) { color:var(--muted); }
+:root[data-skin="arknights"] .yuna-service .wiki-hero .emblem-frame { min-height:0; }
+:root[data-skin="arknights"] .yuna-service--cover .hero { grid-template-rows:1fr; }
+:root[data-skin="arknights"] .yuna-service--cover .hero-copy { grid-column:2; grid-row:1; align-self:end; }
+:root[data-skin="scarlet"] .yuna-service :is(.assessment-hero,.inventory-hero,.catalog-hero,.wiki-hero) h1 { font-family:Georgia,"Noto Serif CJK SC",serif; }
+@media(max-width:1100px) {
+  .yuna-app.yuna-service .topbar { height:auto; min-height:84px; flex-wrap:wrap; padding-block:14px; gap:12px; }
+  .yuna-app .primary-nav { gap:6px; }
+  .yuna-app .primary-nav .appearance-controls { margin-left:auto; }
+  .yuna-app .wiki-actions .back-link { font-size:.7rem; }
+}
+@media(max-width:900px) {
+  .yuna-app.yuna-service .auth-shell { grid-template-columns:minmax(0,1fr); }
+  .yuna-app.yuna-service .auth-intro { border-right:0; border-bottom:1px solid var(--line); }
+  .yuna-app.yuna-service .auth-copy { margin:34px 0; }
+  .yuna-app.yuna-service .studio-grid { grid-template-columns:minmax(0,1fr); }
+  .yuna-app.yuna-service .controls { border-right:0; }
+}
+@media(max-width:700px) {
+  .yuna-app :is(.site-shell,.auth-topbar,.auth-shell) { width:calc(100% - 24px); }
+  .yuna-app.yuna-service .topbar { min-height:72px; }
+  .yuna-app.yuna-service .top-meta { margin-left:auto; }
+  .yuna-app .primary-nav { width:100%; }
+  .yuna-app .wiki-actions { gap:8px; }
+  .yuna-app.yuna-service .auth-field { grid-template-columns:minmax(0,1fr); gap:10px; padding-block:14px; }
+  .yuna-app.yuna-service .auth-field input { min-height:36px; }
+  .yuna-app.yuna-service :is(.auth-intro,.auth-panel) { padding:26px 18px; }
+  .yuna-app.yuna-service .auth-meta { flex-wrap:wrap; }
+  :root[data-skin="arknights"] .yuna-service :is(.assessment-hero,.inventory-hero,.catalog-hero,.wiki-hero) { grid-template-columns:minmax(0,1fr); gap:24px; }
+  :root[data-skin="arknights"] .yuna-service--cover .hero-copy { grid-column:1; grid-row:2; }
+  .yuna-app.yuna-service :is(.assessment-hero h1,.inventory-hero h1,.hero h1,.catalog-hero h1) { overflow-wrap:anywhere; }
+}
+.yuna-app.yuna-service { --bs-body-bg:var(--bg); --bs-body-color:var(--ink); --bs-border-color:var(--line); color:var(--ink); background-color:var(--bg); }
+.yuna-app.yuna-service :is(.inventory-hero,.assessment-hero,.catalog-hero,.wiki-hero,.guide-hero) > * { min-width:0; }
+.yuna-app.yuna-service .hero-copy::after { pointer-events:none; }
+@media(max-width:1000px) { :root[data-skin="arknights"] .yuna-service .wiki-emblem { display:none; } }
+/* Reset old twelve-column placements when a service adopts the new two-column header. */
+:root[data-skin="arknights"] .yuna-service .inventory-hero { grid-template-rows:auto auto; }
+:root[data-skin="arknights"] .yuna-service .inventory-hero .hero-title { grid-column:1; grid-row:1; }
+:root[data-skin="arknights"] .yuna-service .inventory-hero .hero-copy { grid-column:1; grid-row:2; }
+:root[data-skin="arknights"] .yuna-service .inventory-hero .hero-mark { grid-column:2; grid-row:1/3; width:100%; max-width:400px; min-width:0; color:var(--ink); background:var(--surface); border:1px solid var(--line); box-shadow:none; transform:none; }
+:root[data-skin="arknights"] .yuna-service .inventory-hero .hero-mark strong { color:var(--blue); -webkit-text-stroke:0; font-size:clamp(3rem,6vw,6rem); }
+:root[data-skin="arknights"] .yuna-service .wiki-hero > div:first-child { grid-column:1; grid-row:1; }
+:root[data-skin="arknights"] .yuna-service .wiki-hero .wiki-aside { grid-column:1; grid-row:2; }
+:root[data-skin="arknights"] .yuna-service .wiki-hero .wiki-emblem { grid-column:2; grid-row:1/3; max-width:300px; justify-self:end; box-shadow:none; }
+:root[data-skin="arknights"] .yuna-service .wiki-title span { color:var(--muted); -webkit-text-stroke:0; }
+@media(max-width:1000px) { :root[data-skin="arknights"] .yuna-service .wiki-hero { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:700px) {
+  :root[data-skin="arknights"] .yuna-service .inventory-hero .hero-mark { display:none; }
+  .yuna-app.yuna-service .primary-nav .nav-link { flex-shrink:0; }
+  .yuna-app.yuna-service .catalog-hero h1 { font-size:clamp(2.8rem,15vw,4.5rem); overflow-wrap:anywhere; }
+}
+.yuna-app.yuna-service .auth-copy h1 { line-height:1.05; }
+.yuna-app.yuna-service .auth-copy h1 span { margin-top:12px; }
+:root[data-skin="arknights"] .yuna-service .catalog-cover { max-width:300px; justify-self:end; transform:none; box-shadow:6px 6px 0 var(--ark-shadow); }
+:root[data-skin="arknights"] .yuna-service .primary-nav .nav-add { box-shadow:none; }
+.yuna-app.yuna-service .color-card[aria-pressed="false"] .choice-mark { color:transparent; background:transparent; border-color:var(--line-strong); }
+.yuna-app.yuna-service .color-card[aria-pressed="true"] .choice-mark { color:var(--white); background:var(--blue); border-color:var(--blue); }
+
+/* Remaining native service pages share the same shell and appearance controls. */
+.yuna-service--identity .shell { width:min(1600px,calc(100% - 48px)); }
+.yuna-service--identity .identity-hero { min-width:0; }
+.yuna-service--identity .identity-hero h1 { font-size:clamp(3rem,6.8vw,7rem); line-height:1.05; overflow-wrap:anywhere; }
+.yuna-service--identity .identity-hero h1 span { margin-top:12px; }
+.yuna-service--identity .top-actions { min-width:0; flex-wrap:wrap; justify-content:flex-end; }
+.yuna-service--identity .panel { min-width:0; }
+.yuna-service--identity .field { grid-template-columns:62px minmax(0,1fr); }
+.yuna-service--identity .register-grid .field { grid-template-columns:50px minmax(0,1fr); }
+.yuna-service--identity .brand-logo { background:transparent; border:0; }
+.yuna-service--calibration .slider-line input[type="range"] { min-width:0; }
+.yuna-service--calibration :is(.cal-hero h1,.control-card h3,.cal-note) { overflow-wrap:anywhere; }
+.yuna-service--calibration .cal-panel-head { flex-wrap:wrap; }
+.yuna-service--calibration .control-card { min-width:0; }
+.yuna-service--calibration .control-card code { white-space:normal; overflow-wrap:anywhere; }
+.yuna-service--remote :is(.remote-stage,.remote-heading,.remote-console) { min-width:0; }
+.yuna-service--remote .remote-heading h1 { overflow-wrap:anywhere; }
+.yuna-service--remote .remote-button { font-family:inherit; }
+.yuna-service--calibration :is(.cal-btn,.cal-select,.slider-line input[type="number"]) { font-family:inherit; }
+:root[data-skin="arknights"] :is(.yuna-service--remote .remote-heading,.yuna-service--calibration .cal-hero,.yuna-service--identity .identity-hero) h1 { font-family:"Barlow Condensed",Archivo,"Noto Sans SC",sans-serif; font-style:normal; line-height:1.05; letter-spacing:-.035em; }
+:root[data-skin="arknights"] :is(.yuna-service--remote .remote-heading h1 em,.yuna-service--calibration .cal-hero h1 span,.yuna-service--identity .identity-hero h1 span) { color:var(--muted); -webkit-text-stroke:0; filter:none; margin-left:0; }
+:root[data-skin="arknights"] :is(.yuna-service--remote .remote-console,.yuna-service--calibration .cal-panel,.yuna-service--identity .panel) { background:var(--surface); border:1px solid var(--line); box-shadow:none; backdrop-filter:none; }
+:root[data-skin="arknights"] .yuna-service--identity .panel::after { display:none; }
+:root[data-skin="arknights"] .yuna-service--identity :is(.primary,.tab.active),
+:root[data-skin="arknights"] .yuna-service--remote .remote-button.primary,
+:root[data-skin="arknights"] .yuna-service--calibration :is(.cal-btn-primary,.cal-btn-accent) { color:#10252b; background:var(--ark-cyan); border-color:var(--ark-cyan); box-shadow:none; }
+:root[data-skin="arknights"] .yuna-service--remote .remote-button.danger { color:var(--ink); border-color:var(--ark-highlight); }
+:root[data-skin="arknights"] .yuna-service--remote .remote-button.danger:hover:not(:disabled) { color:var(--ink); background:var(--surface-2); }
+:root[data-skin="scarlet"] :is(.yuna-service--remote .remote-heading,.yuna-service--calibration .cal-hero,.yuna-service--identity .identity-hero) h1 { font-family:Georgia,"Noto Serif CJK SC",serif; }
+@media(max-width:1100px) {
+  .yuna-service--identity .status { display:none; }
+}
+@media(max-width:700px) {
+  .yuna-service--identity .shell { width:calc(100% - 24px); }
+  .yuna-service--identity main { grid-template-columns:minmax(0,1fr); gap:28px; padding-top:30px; }
+  .yuna-service--identity .register-grid { grid-template-columns:minmax(0,1fr); }
+  .yuna-service--identity .identity-hero { min-height:0; }
+  .yuna-service--identity .identity-copy { margin-top:24px; }
+  .yuna-service--identity .identity-hero h1 span { margin-left:0; }
+  .yuna-service--identity .panel { padding:30px 18px; }
+  .yuna-service--identity .brand { letter-spacing:.04em; }
+  .yuna-service--calibration .slider-line { gap:8px; }
+  .yuna-service--calibration .control-row { grid-template-columns:minmax(0,1fr); }
+  .yuna-service--calibration .slider-line input[type="number"] { width:72px; }
+}

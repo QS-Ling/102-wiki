@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import hashlib
 from html import unescape
 import json
 from pathlib import Path, PurePosixPath
@@ -264,7 +265,9 @@ class SiteRenderer:
         return result
 
     def asset(self, filename: str) -> str:
-        return self.site_url("static", filename)
+        path = self.repository.root / "static" / filename
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+        return self.site_url("static", filename) + "?v=" + digest
 
     def render_catalog(self) -> str:
         catalog = self.repository.load()
