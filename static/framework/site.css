@@ -68,7 +68,7 @@ button,a { -webkit-tap-highlight-color: transparent; }
 .eyebrow::before { content: ""; width: 40px; height: 3px; background: var(--pink); }
 .hero h1 { max-width: 1040px; margin: 0; font-size: clamp(5rem,9.2vw,9.6rem); line-height: .78; letter-spacing: -.075em; font-weight: 900; text-transform: uppercase; }
 .hero h1 em { display: block; margin-left: clamp(30px,5vw,90px); color: transparent; -webkit-text-stroke: 2px var(--blue-soft); font-style: normal; white-space: nowrap; filter: drop-shadow(0 0 24px rgba(119,130,255,.14)); }
-.index-page .hero h1 em { font-size: .72em; }
+:is(.index-page,.yuna-home-layout) .hero h1 em { font-size: .72em; }
 .hero-copy { grid-column: 1 / 5; grid-row: 2; z-index: 2; max-width: 440px; }
 .hero-copy p { margin: 0 0 22px; color: var(--muted); font-size: .84rem; }
 .hero-index { display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--line); color: var(--dim); font-size: .61rem; font-weight: 700; letter-spacing: .15em; }
@@ -145,26 +145,26 @@ button,a { -webkit-tap-highlight-color: transparent; }
 .domain-grid.carousel-ready,.external-grid.carousel-ready { position: relative; display: block; overflow: hidden; }
 .carousel-viewport { width: 100%; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; scrollbar-width: none; overscroll-behavior-inline: contain; }
 .carousel-viewport::-webkit-scrollbar { display: none; }
-.carousel-track { display: grid; width: max-content; }
+.carousel-track { display: grid; width: 100%; }
 .domain-grid .carousel-track {
   --carousel-item-width: clamp(250px,25vw,308px);
-  grid-template-columns: repeat(var(--carousel-columns),var(--carousel-item-width));
+  grid-template-columns: repeat(var(--carousel-columns),minmax(var(--carousel-item-width),1fr));
   grid-template-rows: repeat(2,190px);
 }
 .domain-grid.carousel-ready .domain-link {
-  width: var(--carousel-item-width);
+  width: auto;
   min-height: 190px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 .external-grid .carousel-track {
   --carousel-item-width: clamp(286px,29vw,360px);
-  grid-template-columns: repeat(var(--carousel-columns),var(--carousel-item-width));
+  grid-template-columns: repeat(var(--carousel-columns),minmax(var(--carousel-item-width),1fr));
   grid-template-rows: 1fr;
   gap: 14px;
   padding: 8px 14px 22px 0;
 }
-.external-grid.carousel-ready .external-card { width: var(--carousel-item-width); height: 100%; }
+.external-grid.carousel-ready .external-card { width: auto; height: 100%; }
 .carousel-control {
   position: absolute;
   z-index: 5;
