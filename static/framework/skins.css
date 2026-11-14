@@ -281,6 +281,7 @@
 :root[data-skin="arknights"] .content-stack > .card code,
 :root[data-skin="scarlet"] .content-stack > .card code { color:var(--blue-soft); background:var(--surface-2); }
 /* The native 102 reading area keeps its editorial grid and gives dense tables room. */
+:root[data-skin="102"][data-bs-theme="light"] .index-page .button:is(:hover,:focus-visible):not(:disabled) { color:#fff; background:#65182f; }
 :root[data-skin="102"] .index-page .content-stack > .card:not(.server-overview-section) { grid-template-columns:minmax(210px,.32fr) minmax(0,1fr); column-gap:clamp(36px,6vw,96px); padding:58px 0 66px; }
 :root[data-skin="102"] .index-page .content-stack > .card:not(.server-overview-section) > h2 { font-size:clamp(1.9rem,2.8vw,3rem); line-height:1.1; }
 :root[data-skin="102"] .index-page .content-stack > .card :is(p,li) { line-height:1.85; }
