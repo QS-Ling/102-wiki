@@ -280,6 +280,38 @@
 @media(prefers-contrast:more), (prefers-reduced-transparency:reduce), (forced-colors:active) { :root[data-skin="scarlet"] body.index-page::before { background-image:none; } }
 :root[data-skin="arknights"] .content-stack > .card code,
 :root[data-skin="scarlet"] .content-stack > .card code { color:var(--blue-soft); background:var(--surface-2); }
+/* The native 102 reading area keeps its editorial grid and gives dense tables room. */
+:root[data-skin="102"] .index-page .content-stack > .card:not(.server-overview-section) { grid-template-columns:minmax(210px,.32fr) minmax(0,1fr); column-gap:clamp(36px,6vw,96px); padding:58px 0 66px; }
+:root[data-skin="102"] .index-page .content-stack > .card:not(.server-overview-section) > h2 { font-size:clamp(1.9rem,2.8vw,3rem); line-height:1.1; }
+:root[data-skin="102"] .index-page .content-stack > .card :is(p,li) { line-height:1.85; }
+:root[data-skin="102"] .index-page .content-stack > .card li { border-color:var(--line); }
+:root[data-skin="102"] .index-page .content-stack > .server-overview-section { display:block; padding:58px 0 66px; }
+:root[data-skin="102"] .index-page .server-overview-section > h2 { padding-top:18px; margin:0 0 24px; font-size:clamp(2.1rem,3.2vw,3.25rem); line-height:1.1; }
+:root[data-skin="102"] .index-page .server-overview-section > h3 { margin:42px 0 10px; color:var(--ink); font-size:1.15rem; }
+:root[data-skin="102"] .index-page .server-overview-section > p { margin:0 0 16px; }
+:root[data-skin="102"] .index-page .server-overview-section > table { display:table; width:100%; table-layout:fixed; white-space:normal; margin:16px 0 28px; border-collapse:collapse; border:1px solid var(--line); border-bottom:2px solid var(--blue); background:var(--surface); }
+:root[data-skin="102"] .index-page .server-overview-section :is(th,td) { padding:12px 16px; text-align:left; overflow-wrap:anywhere; border-bottom:1px solid var(--line); }
+:root[data-skin="102"] .index-page .server-overview-section th { color:#34459f; background:color-mix(in srgb,var(--blue) 10%,var(--surface)); border-bottom:1px solid color-mix(in srgb,var(--blue) 38%,var(--line)); font-size:.7rem; letter-spacing:.08em; }
+:root[data-skin="102"][data-bs-theme="dark"] .index-page .server-overview-section th { color:#cbd0ff; }
+:root[data-skin="102"] .index-page .server-overview-section td { color:var(--ink); }
+:root[data-skin="102"] .index-page .server-overview-section td code { color:var(--blue-soft); background:var(--surface-2); white-space:normal; overflow-wrap:anywhere; }
+:root[data-skin="102"] .index-page .server-overview-section > table:first-of-type th:first-child { width:20%; }
+:root[data-skin="102"] .index-page .server-overview-section > table:first-of-type th:nth-child(2) { width:30%; }
+:root[data-skin="102"] .index-page .server-overview-section > table:nth-of-type(2) th:first-child { width:28%; }
+:root[data-skin="102"] .index-page .server-overview-section tbody tr { transition:background-color .18s ease; }
+:root[data-skin="102"] .index-page .server-overview-section tbody tr:is(:hover,:focus-within) { background:color-mix(in srgb,var(--blue) 12%,var(--surface)); }
+:root[data-skin="102"] .index-page .server-overview-section tbody tr:is(:hover,:focus-within) td:first-child { box-shadow:inset 3px 0 var(--blue); }
+:root[data-skin="102"] .index-page .server-overview-section tbody tr:last-child td { border-bottom:2px solid var(--blue); }
+@media(max-width:700px) {
+  :root[data-skin="102"] .index-page .content-stack > .card:not(.server-overview-section) { display:block; padding:42px 0 46px; }
+  :root[data-skin="102"] .index-page .content-stack > .card:not(.server-overview-section) > h2 { margin:0 0 22px; }
+  :root[data-skin="102"] .index-page .content-stack > .server-overview-section { padding:44px 0 50px; }
+  :root[data-skin="102"] .index-page .server-overview-section :is(th,td) { padding:10px 8px; }
+  :root[data-skin="102"] .index-page .server-overview-section > table:first-of-type th:first-child { width:24%; }
+  :root[data-skin="102"] .index-page .server-overview-section > table:first-of-type th:nth-child(2) { width:27%; }
+  :root[data-skin="102"] .index-page .server-overview-section > table:nth-of-type(2) th:first-child { width:36%; }
+}
+@media(prefers-reduced-motion:reduce) { :root[data-skin="102"] .index-page .server-overview-section tbody tr { transition:none; } }
 /* Home reading chapters follow the same quiet, gold-lined mansion stationery. */
 :root[data-skin="scarlet"] .index-page .content-stack { padding-bottom:64px; }
 :root[data-skin="scarlet"] .index-page .content-stack > .card:not(.server-overview-section) { grid-template-columns:minmax(190px,.32fr) minmax(0,1fr); column-gap:clamp(34px,6vw,90px); padding:46px 0 52px; }
